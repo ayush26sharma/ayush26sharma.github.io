@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Actions</title>
+</head>
+<body>
+    <h1>API Actions</h1>
+
+    <div>
+        <h2>Current Week Leaderboard</h2>
+        <button onclick="getLeaderboard()">Get Current Week Leaderboard</button>
+        <div id="leaderboardData"></div>
+    </div>
+
+    <div>
+        <h2>Last Week Leaderboard</h2>
+        <button onclick="getLastWeekLeaderboard('your_country_code')">Get Last Week Leaderboard</button>
+        <div id="lastWeekLeaderboardData"></div>
+    </div>
+
+    <div>
+        <h2>User Rank</h2>
+        <button onclick="getUserRank('your_user_id')">Get User Rank</button>
+        <div id="userRankData"></div>
+    </div>
+
+    <script>
+        function getLeaderboard() {
+            fetch('/current_week_leaderboard')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('leaderboardData').innerText = JSON.stringify(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getLastWeekLeaderboard(country) {
+            fetch(`/last_week_leaderboard/${country}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('lastWeekLeaderboardData').innerText = JSON.stringify(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getUserRank(userId) {
+            fetch(`/user_rank/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('userRankData').innerText = JSON.stringify(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

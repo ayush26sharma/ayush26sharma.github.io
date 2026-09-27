@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayush Sharma — Cloud Infrastructure &amp; Distributed Systems Engineer</title>
+<meta name="description" content="Ayush Sharma — Software engineer building and operating production distributed systems, microservices, and event-driven Kafka pipelines for risk and fraud platforms.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%231F7A5C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf9f7;
+    --surface:#ffffff;
+    --ink:#16202b;
+    --muted:#5c6b78;
+    --line:#e3e7e7;
+    --signal:#1f7a5c;
+    --signal-soft:#e8f3ee;
+    --max:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--signal);text-decoration:none;}
+  a:hover, a:focus-visible{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* status bar */
+  .statusbar{
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    background:var(--surface);
+  }
+  .statusbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;letter-spacing:.02em;color:var(--muted);
+  }
+  .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--signal);
+    box-shadow:0 0 0 3px var(--signal-soft);
+    animation:pulse 2.4s ease-in-out infinite;
+    flex:none;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:.45;}
+  }
+  .status-links{display:flex;gap:20px;font-family:'IBM Plex Mono', monospace;font-size:12.5px;}
+  .status-links a{color:var(--ink);}
+  .status-links a:hover{color:var(--signal);}
+
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--signal);
+    display:flex;align-items:center;gap:8px;
+    margin:0 0 22px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;background:var(--signal);border-radius:50%;flex:none;}
+
+  /* hero */
+  .hero{padding-top:56px;padding-bottom:56px;}
+  .hero h1{
+    font-size:clamp(34px,5.2vw,52px);
+    line-height:1.08;
+    margin:0 0 10px;
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+  .hero .role{
+    font-size:clamp(17px,2vw,20px);
+    color:var(--muted);
+    margin:0 0 22px;
+    font-weight:500;
+  }
+  .hero p.lede{
+    max-width:64ch;
+    font-size:16.5px;
+    color:var(--ink);
+    margin:0 0 30px;
+  }
+  .hero p.lede b{font-weight:600;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    padding:11px 20px;
+    border-radius:6px;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease;
+  }
+  .btn:hover{background:var(--ink);color:var(--surface);text-decoration:none;}
+  .btn.primary{background:var(--signal);border-color:var(--signal);color:#fff;}
+  .btn.primary:hover{background:#175f47;border-color:#175f47;}
+  .btn:active{transform:translateY(1px);}
+
+  /* stats */
+  .stats{padding-top:0;padding-bottom:64px;border-bottom:1px solid var(--line);}
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .stat-tile{
+    background:var(--surface);
+    padding:22px 20px;
+  }
+  .stat-tile .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(22px,3vw,28px);
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+  }
+  .stat-tile .label{
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:4px;
+    display:block;
+  }
+
+  /* experience */
+  .role-item{display:grid;grid-template-columns:150px 1fr;gap:24px;margin-bottom:40px;}
+  .role-item:last-child{margin-bottom:0;}
+  .role-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    padding-top:4px;
+  }
+  .role-content h3{margin:0 0 2px;font-size:18px;font-weight:600;}
+  .role-content .company{
+    color:var(--signal);font-size:14px;font-weight:500;margin-bottom:12px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .role-content ul{margin:0;padding-left:20px;}
+  .role-content li{margin-bottom:8px;font-size:15px;color:var(--ink);}
+  .role-content li:last-child{margin-bottom:0;}
+  .role-content li b{font-weight:600;}
+
+  /* projects */
+  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .project-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px;
+    display:flex;flex-direction:column;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .project-card:hover{border-color:var(--signal);transform:translateY(-2px);}
+  .project-card h3{font-size:16.5px;margin:0 0 10px;font-weight:600;}
+  .project-card .stack{
+    display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    background:var(--signal-soft);
+    color:var(--signal);
+    padding:3px 8px;
+    border-radius:4px;
+  }
+  .project-card ul{margin:0 0 16px;padding-left:18px;flex:1;}
+  .project-card li{font-size:13.8px;color:var(--muted);margin-bottom:7px;}
+  .project-card li:last-child{margin-bottom:0;}
+  .project-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;font-weight:500;
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:auto;
+  }
+  .project-link .arrow{transition:transform .15s ease;}
+  .project-card:hover .arrow{transform:translateX(3px);}
+
+  /* skills */
+  .skill-group{margin-bottom:22px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin:0 0 10px;
+    font-weight:500;
+  }
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13.5px;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    color:var(--ink);
+    background:var(--surface);
+  }
+
+  /* education / certs */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .grid-2 h3{font-size:16px;margin:0 0 4px;font-weight:600;}
+  .grid-2 .meta{color:var(--muted);font-size:14px;margin-bottom:14px;}
+  .grid-2 ul{margin:0;padding-left:20px;}
+  .grid-2 li{font-size:14.5px;margin-bottom:8px;color:var(--ink);}
+
+  /* footer */
+  footer{padding:56px 0 72px;}
+  footer .wrap{text-align:center;}
+  footer h2{font-size:clamp(24px,3.4vw,32px);margin:0 0 14px;}
+  footer p{color:var(--muted);max-width:50ch;margin:0 auto 28px;}
+  footer .cta-row{justify-content:center;}
+  footer .fine{
+    margin-top:48px;font-size:12.5px;color:var(--muted);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (max-width:760px){
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+    .project-grid{grid-template-columns:1fr;}
+    .role-item{grid-template-columns:1fr;gap:6px;}
+    .grid-2{grid-template-columns:1fr;gap:32px;}
+    .status-links{gap:14px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .dot{animation:none;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .project-card, .btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="wrap">
+    <span class="status-pill"><span class="dot"></span>AVAILABLE FOR NEW OPPORTUNITIES</span>
+    <nav class="status-links">
+      <a href="mailto:sharma.as.ayush@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ayush-sharma-2609/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ayush26sharma" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Ayush Sharma</h1>
+    <p class="role">Cloud Infrastructure &amp; Distributed Systems Engineer · Bangalore, India</p>
+    <p class="lede">I keep fintech risk and fraud systems online. <b>2+ years</b> building and operating production microservices and event-driven Kafka pipelines at Jupiter Money — owning <b>8+ services</b> at <b>99.9% uptime</b>, on-call rotation included.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="assets/Ayush_Sharma_Resume.pdf" target="_blank" rel="noopener">Download Résumé ↓</a>
+      <a class="btn" href="mailto:sharma.as.ayush@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat-tile">
+        <span class="num">99.9%</span>
+        <span class="label">uptime across owned services</span>
+      </div>
+      <div class="stat-tile">
+        <span class="num">8+</span>
+        <span class="label">production services owned</span>
+      </div>
+      <div class="stat-tile">
+        <span class="num">50K</span>
+        <span class="label">events/day processed</span>
+      </div>
+      <div class="stat-tile">
+        <span class="num">−30%</span>
+        <span class="label">infra cost after Java 21 &amp; tuning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <div class="role-item">
+      <div class="role-date">Jun 2024 — Present</div>
+      <div class="role-content">
+        <h3>Software Development Engineer</h3>
+        <div class="company">Jupiter Money · Risk Tech</div>
+        <ul>
+          <li>Own <b>5–6 microservices</b> and 3 major production services; maintain <b>99.9% uptime</b> through on-call rotation, alerting, and RCA.</li>
+          <li>Led <b>Super Money, CIBIL, and PayU</b> integrations end-to-end — defined API contracts, coordinated stakeholders, shipped to production.</li>
+          <li>Built event-driven fraud detection pipelines across 3–4 third-party sources, blocking <b>20% more fraudulent transactions</b> with fewer false positives.</li>
+          <li>Migrated Airflow DAGs from Athena to Databricks and cache from AWS Elasticsearch to Redis Cloud — improved reliability and latency.</li>
+          <li>Upgraded services from Java 17 to 21 and tuned AWS resources for a <b>30% infrastructure cost reduction</b>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role-item">
+      <div class="role-date">Nov 2023 — Jun 2024</div>
+      <div class="role-content">
+        <h3>Software Development Engineering Intern</h3>
+        <div class="company">Jupiter Money · Risk Tech</div>
+        <ul>
+          <li>Built real-time ingestion pipelines with <b>Kafka and Akka Streams</b> into DynamoDB and PostgreSQL at sub-100ms latency.</li>
+          <li>Shipped 5–6 Airflow DAGs, 3–4 AWS Lambdas, and Spring Boot APIs — cut deployment automation time from 30 min to 5 min.</li>
+          <li>Stood up Prometheus, Grafana, and Kibana monitoring for critical pipelines; supported launches, incident triage, and RCAs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <h3>Metrics Publisher Service</h3>
+        <div class="stack">
+          <span class="tag">Java 17</span><span class="tag">Kafka</span><span class="tag">TimescaleDB</span><span class="tag">Redis</span>
+        </div>
+        <ul>
+          <li>Distributed time-series metrics platform on a 4-stage Kafka pipeline, fully Dockerized.</li>
+          <li>Batch processing at 500 metrics/batch with Redis-based cardinality control (1K series/metric) and T-Digest quantile estimation.</li>
+          <li>REST APIs for P95/SUM/AVG/RATE with time-bucketed queries and 90-day retention.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/ayush26sharma/metrics-publisher-service" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
+      </div>
+
+      <div class="project-card">
+        <h3>Movie Ticket Booking</h3>
+        <div class="stack">
+          <span class="tag">Spring Boot 3</span><span class="tag">PostgreSQL</span><span class="tag">Java</span>
+        </div>
+        <ul>
+          <li>Seat-level booking at scale with concurrency-safe holds — no double-booked seats under contention.</li>
+          <li>Tiered pricing and discount engine with payment capture and refund flows.</li>
+          <li>Transactional-outbox pattern for reliable notification delivery.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/ayush26sharma/movie-ticket-booking" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
+      </div>
+
+      <div class="project-card">
+        <h3>Flow-Controlled IPC</h3>
+        <div class="stack">
+          <span class="tag">C</span><span class="tag">Linux IPC</span><span class="tag">Sockets</span>
+        </div>
+        <ul>
+          <li>Reliable Linux IPC across Unix domain sockets, FIFOs, and message queues with explicit synchronization.</li>
+          <li>Acknowledgement-based batching for 50 generated messages — next batch sent only after receiver confirms.</li>
+          <li>Benchmarked transport behavior across all three mechanisms to ground OS/networking fundamentals.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/ayush26sharma/Inter-Process-Communication-flow-controlled" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <div class="skill-group">
+      <h4>Cloud &amp; Platform</h4>
+      <div class="chip-row">
+        <span class="chip">AWS (Lambda, EC2, DynamoDB)</span><span class="chip">GCP</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Spinnaker</span><span class="chip">CI/CD</span><span class="chip">Cost Optimization</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Backend</h4>
+      <div class="chip-row">
+        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">Scala</span><span class="chip">Golang</span><span class="chip">Spring Boot</span><span class="chip">Microservices</span><span class="chip">API Design</span><span class="chip">Distributed Systems</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Data &amp; Streaming</h4>
+      <div class="chip-row">
+        <span class="chip">Apache Kafka</span><span class="chip">Akka Streams</span><span class="chip">Apache Airflow</span><span class="chip">Databricks</span><span class="chip">Event-Driven Architecture</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Databases</h4>
+      <div class="chip-row">
+        <span class="chip">PostgreSQL</span><span class="chip">DynamoDB</span><span class="chip">Redis Cloud</span><span class="chip">Elasticsearch</span><span class="chip">TimescaleDB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Operations</h4>
+      <div class="chip-row">
+        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Kibana</span><span class="chip">Incident Response &amp; RCA</span><span class="chip">On-call / SLA Ownership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">Education</p>
+      <h3>B.Tech, Computer Science and Engineering</h3>
+      <div class="meta">Indraprastha Institute of Information Technology, Delhi (IIITD) · 2020–2024 · CGPA 8.0/10</div>
+    </div>
+    <div>
+      <p class="eyebrow">Certifications &amp; Recognition</p>
+      <ul>
+        <li><b>Best Performer of the Quarter</b> — Jupiter Money</li>
+        <li><b>ARTPARK Fellowship</b> — IISc Bangalore</li>
+        <li><b>Amazon ML Summer School</b> — Amazon, 2022</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="reveal">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center;">Contact</p>
+    <h2>Let's talk about your team's next hire.</h2>
+    <p>Open to backend, cloud infrastructure, and distributed systems roles. I usually reply within a day.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:sharma.as.ayush@gmail.com">sharma.as.ayush@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ayush-sharma-2609/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/ayush26sharma" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <p class="fine">BUILT &amp; MAINTAINED BY AYUSH SHARMA — LAST DEPLOYED <span id="deploy-date"></span></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('deploy-date').textContent = new Date().toISOString().slice(0,10);
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

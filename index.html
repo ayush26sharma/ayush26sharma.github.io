@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayush Sharma — Cloud Infrastructure &amp; Distributed Systems Engineer</title>
-<meta name="description" content="Ayush Sharma — Software engineer building and operating production distributed systems, microservices, and event-driven Kafka pipelines for risk and fraud platforms.">
+<title>Ayush Sharma — Software Engineer, Distributed Systems (Fintech, Risk &amp; Lending)</title>
+<meta name="description" content="Ayush Sharma — Software engineer designing distributed Java/Spring Boot systems for fraud detection, credit underwriting, and BNPL lending at Jupiter Money, including an MCP-based agentic on-call assistant.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%231F7A5C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,9 +162,17 @@
   .role-content li{margin-bottom:8px;font-size:15px;color:var(--ink);}
   .role-content li:last-child{margin-bottom:0;}
   .role-content li b{font-weight:600;}
+  .role-content .subproj{margin-top:20px;}
+  .role-content .subproj h4{
+    font-size:14.5px;font-weight:600;margin:0 0 8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .role-content .subproj h4::before{content:"";width:5px;height:5px;background:var(--signal);border-radius:50%;flex:none;}
+  .role-content .subproj ul{margin-top:0;}
+  .role-content .subproj li{font-size:14.5px;}
 
   /* projects */
-  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
   .project-card{
     background:var(--surface);
     border:1px solid var(--line);
@@ -273,8 +281,8 @@
 <header class="hero">
   <div class="wrap">
     <h1>Ayush Sharma</h1>
-    <p class="role">Cloud Infrastructure &amp; Distributed Systems Engineer · Bangalore, India</p>
-    <p class="lede">I keep fintech risk and fraud systems online. <b>2+ years</b> building and operating production microservices and event-driven Kafka pipelines at Jupiter Money — owning <b>8+ services</b> at <b>99.9% uptime</b>, on-call rotation included.</p>
+    <p class="role">Software Engineer · Distributed Systems · Fintech, Risk &amp; Lending Platforms · Bangalore, India</p>
+    <p class="lede"><b>3+ years</b> designing multi-tier distributed systems and Java/Spring Boot microservices for fraud detection, credit underwriting, and BNPL lending at Jupiter Money — including real-time risk checks embedded directly in the disbursal path. Own <b>8+ production services</b> at <b>99.9% uptime</b>. Also build with agentic AI tooling — shipped an MCP-based on-call agent (Claude + Grafana + Slack + GitHub + Jira) that cuts per-alert triage effort by <b>95%</b>.</p>
     <div class="cta-row">
       <a class="btn primary" href="assets/Ayush_Sharma_Resume.pdf" target="_blank" rel="noopener">Download Résumé ↓</a>
       <a class="btn" href="mailto:sharma.as.ayush@gmail.com">Get in touch</a>
@@ -298,8 +306,8 @@
         <span class="label">events/day processed</span>
       </div>
       <div class="stat-tile">
-        <span class="num">−30%</span>
-        <span class="label">infra cost after Java 21 &amp; tuning</span>
+        <span class="num">95%</span>
+        <span class="label">less on-call triage effort via AI agent</span>
       </div>
     </div>
   </div>
@@ -314,12 +322,43 @@
         <h3>Software Development Engineer</h3>
         <div class="company">Jupiter Money · Risk Tech</div>
         <ul>
-          <li>Own <b>5–6 microservices</b> and 3 major production services; maintain <b>99.9% uptime</b> through on-call rotation, alerting, and RCA.</li>
-          <li>Led <b>Super Money, CIBIL, and PayU</b> integrations end-to-end — defined API contracts, coordinated stakeholders, shipped to production.</li>
-          <li>Built event-driven fraud detection pipelines across 3–4 third-party sources, blocking <b>20% more fraudulent transactions</b> with fewer false positives.</li>
-          <li>Migrated Airflow DAGs from Athena to Databricks and cache from AWS Elasticsearch to Redis Cloud — improved reliability and latency.</li>
-          <li>Upgraded services from Java 17 to 21 and tuned AWS resources for a <b>30% infrastructure cost reduction</b>.</li>
+          <li>Own <b>8+ production services</b> across fraud detection, credit underwriting, and BNPL lending — spanning consumer and co-lending — maintaining <b>99.9% uptime</b> through on-call rotation, alerting, and RCA.</li>
+          <li>Delivered <b>80+ tickets</b> and <b>400+ commits</b> across 21 repositories in a single review cycle, owning 5 epics end-to-end from design through production.</li>
         </ul>
+
+        <div class="subproj">
+          <h4>Fraud Detection &amp; Compliance</h4>
+          <ul>
+            <li>Integrated <b>6+ third-party risk and fraud signals</b> — device/identity fraud SDKs, telecom verification, credit-bureau data, and government regulatory datasets — into real-time onboarding and pre-disbursal checks, blocking <b>30% of fraudulent users</b> at onboarding.</li>
+            <li>Closed a regulatory compliance gap by building a pipeline for government blacklist datasets, now checked on every onboarding and loan application.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Partner Lending &amp; BNPL Growth</h4>
+          <ul>
+            <li>Took <b>4 lending partner programs live end-to-end</b> (incl. Super Money, GoKwik, ShopSe), each requiring the full underwriting and fraud-check chain rather than a config change.</li>
+            <li>Built the Super Money BNPL credit line and credit-limit engine from scratch — a new credit-origination pipeline driving <b>30% revenue growth</b> for the lending business.</li>
+            <li>Migrated the hard-pull credit-bureau integration to a more reliable provider via phased rollout, and delivered <b>~40 credit-policy changes</b> alongside a full transition to new ML underwriting models — cutting false positives 20% and lifting true negatives 10%.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Risk Platform Reliability &amp; Observability</h4>
+          <ul>
+            <li>Designed and shipped an automated per-cohort <b>exposure-control circuit breaker</b> embedded in the credit-decisioning path — the team's first automated guardrail against disbursal risk drift.</li>
+            <li>Built a team-wide <b>A/B policy-experimentation framework</b> and live model-health dashboards for <b>10+ production risk and fraud models</b>, taking the team from zero visibility to real-time observability.</li>
+            <li>Migrated Airflow DAGs from Athena to Databricks and cache from Elasticsearch to Redis Cloud; upgraded Java 17 to 21, cutting infrastructure cost <b>30%</b>.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>MCP-Based Autonomous On-Call Agent</h4>
+          <ul>
+            <li>Built an agentic on-call assistant wiring Grafana, Slack, GitHub, and Jira to Claude over the <b>Model Context Protocol</b>, triggered automatically whenever an alert fires.</li>
+            <li>Automates log and metric collection across impacted and dependent services, cutting per-alert triage effort by up to <b>95%</b>, and self-improves by writing recurring-alert summaries to memory.</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="role-item">
@@ -345,40 +384,27 @@
       <div class="project-card">
         <h3>Metrics Publisher Service</h3>
         <div class="stack">
-          <span class="tag">Java 17</span><span class="tag">Kafka</span><span class="tag">TimescaleDB</span><span class="tag">Redis</span>
+          <span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">Kafka</span><span class="tag">TimescaleDB</span><span class="tag">Redis</span>
         </div>
         <ul>
-          <li>Distributed time-series metrics platform on a 4-stage Kafka pipeline, fully Dockerized.</li>
+          <li>Distributed, high-throughput time-series metrics collection and query system on a 4-stage event-driven pipeline, fully Dockerized.</li>
           <li>Batch processing at 500 metrics/batch with Redis-based cardinality control (1K series/metric) and T-Digest quantile estimation.</li>
-          <li>REST APIs for P95/SUM/AVG/RATE with time-bucketed queries and 90-day retention.</li>
+          <li>REST API for P95/SUM/AVG/RATE aggregations with time-bucketed queries, 90-day retention, and compression.</li>
         </ul>
         <a class="project-link" href="https://github.com/ayush26sharma/metrics-publisher-service" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
       </div>
 
       <div class="project-card">
-        <h3>Movie Ticket Booking</h3>
+        <h3>Movie Ticket Booking System</h3>
         <div class="stack">
-          <span class="tag">Spring Boot 3</span><span class="tag">PostgreSQL</span><span class="tag">Java</span>
+          <span class="tag">Java 21</span><span class="tag">Spring Boot 3</span><span class="tag">PostgreSQL</span><span class="tag">Testcontainers</span>
         </div>
         <ul>
-          <li>Seat-level booking at scale with concurrency-safe holds — no double-booked seats under contention.</li>
-          <li>Tiered pricing and discount engine with payment capture and refund flows.</li>
-          <li>Transactional-outbox pattern for reliable notification delivery.</li>
+          <li>Seat-level booking backend as a package-by-feature modular monolith — time-bound holds, tiered/weekend pricing, discount codes, simulated payment, configurable refunds.</li>
+          <li>Serialized concurrent seat booking with a lock-free guarded conditional UPDATE in Postgres — a 100-thread race test yields exactly one winner with zero double-allocation.</li>
+          <li>Payment I/O run outside DB transactions with idempotency keys and a non-blocking transactional-outbox; 85 tests green against real Postgres (Testcontainers).</li>
         </ul>
         <a class="project-link" href="https://github.com/ayush26sharma/movie-ticket-booking" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
-      </div>
-
-      <div class="project-card">
-        <h3>Flow-Controlled IPC</h3>
-        <div class="stack">
-          <span class="tag">C</span><span class="tag">Linux IPC</span><span class="tag">Sockets</span>
-        </div>
-        <ul>
-          <li>Reliable Linux IPC across Unix domain sockets, FIFOs, and message queues with explicit synchronization.</li>
-          <li>Acknowledgement-based batching for 50 generated messages — next batch sent only after receiver confirms.</li>
-          <li>Benchmarked transport behavior across all three mechanisms to ground OS/networking fundamentals.</li>
-        </ul>
-        <a class="project-link" href="https://github.com/ayush26sharma/Inter-Process-Communication-flow-controlled" target="_blank" rel="noopener">View on GitHub <span class="arrow">→</span></a>
       </div>
 
     </div>
@@ -389,33 +415,45 @@
   <div class="wrap">
     <p class="eyebrow">Skills</p>
     <div class="skill-group">
-      <h4>Cloud &amp; Platform</h4>
+      <h4>Languages</h4>
       <div class="chip-row">
-        <span class="chip">AWS (Lambda, EC2, DynamoDB)</span><span class="chip">GCP</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Spinnaker</span><span class="chip">CI/CD</span><span class="chip">Cost Optimization</span>
+        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">Scala</span><span class="chip">Kotlin</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
       </div>
     </div>
     <div class="skill-group">
-      <h4>Backend</h4>
+      <h4>Backend &amp; Architecture</h4>
       <div class="chip-row">
-        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">Scala</span><span class="chip">Golang</span><span class="chip">Spring Boot</span><span class="chip">Microservices</span><span class="chip">API Design</span><span class="chip">Distributed Systems</span>
+        <span class="chip">Distributed Systems</span><span class="chip">Microservices</span><span class="chip">Design Patterns</span><span class="chip">Spring Boot</span><span class="chip">REST APIs</span><span class="chip">Event-Driven Architecture</span><span class="chip">Rules / Policy Engines</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>AI &amp; GenAI</h4>
+      <div class="chip-row">
+        <span class="chip">Model Context Protocol (MCP)</span><span class="chip">Agentic AI Workflows</span><span class="chip">Prompt Engineering</span><span class="chip">AI-Assisted Coding (Claude)</span>
       </div>
     </div>
     <div class="skill-group">
       <h4>Data &amp; Streaming</h4>
       <div class="chip-row">
-        <span class="chip">Apache Kafka</span><span class="chip">Akka Streams</span><span class="chip">Apache Airflow</span><span class="chip">Databricks</span><span class="chip">Event-Driven Architecture</span>
+        <span class="chip">Apache Kafka</span><span class="chip">Akka Streams</span><span class="chip">Apache Airflow</span><span class="chip">Databricks</span>
       </div>
     </div>
     <div class="skill-group">
-      <h4>Databases</h4>
+      <h4>Databases &amp; Storage</h4>
       <div class="chip-row">
-        <span class="chip">PostgreSQL</span><span class="chip">DynamoDB</span><span class="chip">Redis Cloud</span><span class="chip">Elasticsearch</span><span class="chip">TimescaleDB</span>
+        <span class="chip">PostgreSQL</span><span class="chip">DynamoDB</span><span class="chip">Redis</span><span class="chip">Elasticsearch</span><span class="chip">TimescaleDB</span><span class="chip">S3</span>
       </div>
     </div>
     <div class="skill-group">
-      <h4>Operations</h4>
+      <h4>Cloud &amp; DevOps</h4>
       <div class="chip-row">
-        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Kibana</span><span class="chip">Incident Response &amp; RCA</span><span class="chip">On-call / SLA Ownership</span>
+        <span class="chip">AWS (Lambda, EC2, DynamoDB, S3)</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Spinnaker</span><span class="chip">CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Observability &amp; Reliability</h4>
+      <div class="chip-row">
+        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Kibana</span><span class="chip">Incident Response &amp; RCA</span><span class="chip">On-call / SLA Ownership</span><span class="chip">A/B Experimentation</span>
       </div>
     </div>
   </div>
@@ -443,7 +481,7 @@
   <div class="wrap">
     <p class="eyebrow" style="justify-content:center;">Contact</p>
     <h2>Let's talk about your team's next hire.</h2>
-    <p>Open to backend, cloud infrastructure, and distributed systems roles. I usually reply within a day.</p>
+    <p>Open to backend, distributed systems, and AI/agentic infrastructure roles. I usually reply within a day.</p>
     <div class="cta-row">
       <a class="btn primary" href="mailto:sharma.as.ayush@gmail.com">sharma.as.ayush@gmail.com</a>
       <a class="btn" href="https://www.linkedin.com/in/ayush-sharma-2609/" target="_blank" rel="noopener">LinkedIn ↗</a>

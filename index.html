@@ -390,11 +390,69 @@
   <div class="wrap">
     <p class="eyebrow">Experience</p>
     <div class="role-item">
-      <div class="role-date">Jun 2024 — Present</div>
+      <div class="role-date">Oct 2026 — Present</div>
       <div class="role-content">
         <h3>Software Development Engineer II</h3>
+        <div class="company">Jupiter Money · Loans Tech</div>
+        <div class="promo">Promoted from SDE I</div>
+        <ul>
+          <li>Took <b>5 systems from zero to production</b> across fraud, credit underwriting, and risk infrastructure — all still owned end-to-end, from design through on-call.</li>
+        </ul>
+
+        <div class="subproj">
+          <h4>Approval Recovery &amp; Income Verification</h4>
+          <ul>
+            <li>Turned Account Aggregator consent failure from a <b>terminal decline into a recoverable journey</b> — built a bank-statement income fallback across 4 services and ramped it to 10% of traffic, recovering creditworthy applicants previously lost at the consent step.</li>
+            <li>Recovered approvals for a <b>creditworthy high-tradeline segment</b> that a blunt hard rule had been auto-declining, routing it to a calibrated policy set instead — direct revenue impact.</li>
+            <li>Put <b>dedicated new-customer and repeat-customer ML models</b> into live decisioning, replacing a single generic model optimised for neither.</li>
+            <li>Opened a <b>high-volume RuPay TPAP acquisition channel</b> to lending with a risk flow built for customers with no in-app history, avoiding over-declines from mis-calibrated policy.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>KYC Cost &amp; Friction Reduction</h4>
+          <ul>
+            <li><b>Cut KYC cost and applicant drop-off</b> by replacing video KYC with liveness for loans under ₹60K, then under ₹1L, and shifting DigiLocker traffic to the cheaper CKYC rail — fixing the high-risk tier definition first so the cheaper path <b>never reached a risky cohort</b>.</li>
+            <li>Removed a <b>single-vendor dependency</b> on DigiLocker KYC by integrating a second provider, validated on a controlled cohort before rollout.</li>
+            <li>Built tiered <b>KYC quality scoring</b> — strong KYC unlocks better loan terms, while anomalous KYC triggers elevated fraud scrutiny.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Partner Growth</h4>
+          <ul>
+            <li>Took a partner program live in <b>~2 weeks</b> by turning the first partner integration into a reusable risk-stack pattern.</li>
+            <li>Opened a <b>new 18–21 borrower segment</b> with an automatic exposure ceiling of 5% of disbursed amount — growth with a hard risk cap.</li>
+            <li>Delivered tenure, affordability (FOIR) and income-reconciliation changes to bring <b>Federal Bank co-lending</b> live on the risk stack.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Risk Controls &amp; Compliance</h4>
+          <ul>
+            <li>Migrated co-lending hard pulls to Experian with a <b>2% → 10% → 100% ramp and zero disruption to live loans</b>; added hard-pull necessity checks that cut unnecessary credit pulls and their cost.</li>
+            <li>Made <b>device and identity fraud signals first-class</b> at both onboarding and loan application — stopping fraudsters before they become users — with graceful degradation if the vendor is down.</li>
+            <li>Raised government blacklist (FRI/MNRL) freshness <b>from daily to hourly</b> with resumable, rate-limit-aware chunked ingestion, so recently flagged entities are caught sooner.</li>
+            <li>Made the exposure circuit breaker <b>fail-open by design</b>, so a fault in the guardrail can never cause false declines on the revenue path.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Reliability &amp; Platform</h4>
+          <ul>
+            <li>Restored the <b>real-time fraud decision index</b> after it outgrew capacity and stopped ingesting new signals — fixed the root cause (no shard management or expiry) on a system I didn't build.</li>
+            <li>Moved <b>7 services</b> to a shared dependency baseline, turning every version bump from seven changes into one.</li>
+            <li>Found and fixed <b>3 unhandled production exceptions</b> and a silent income-data corruption bug through proactive log review, before any ticket was raised.</li>
+            <li>Authored the decommissioning plan to <b>retire the legacy risk stack</b> safely, tracing every dependency to its source tables.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="role-item">
+      <div class="role-date">Jun 2024 — Oct 2026</div>
+      <div class="role-content">
+        <h3>Software Development Engineer I</h3>
         <div class="company">Jupiter Money · Risk Tech</div>
-        <div class="promo">Promoted SDE I → SDE II · Oct 2026</div>
         <ul>
           <li>Own <b>12+ production services</b> processing <b>500K events/day</b> across fraud detection, credit underwriting, and BNPL lending — spanning consumer and co-lending — maintaining <b>99.9% uptime</b> through on-call rotation, alerting, and RCA.</li>
         </ul>

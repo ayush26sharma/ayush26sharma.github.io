@@ -391,53 +391,32 @@
         <h3>Software Development Engineer II</h3>
         <div class="company">Jupiter Money · Loans Tech</div>
         <ul>
+          <li>Own <b>12+ production services</b> processing <b>1M events a day</b> across fraud detection, credit underwriting and BNPL lending, at <b>99.9% uptime</b>.</li>
           <li>Built <b>5 systems from scratch</b> and took them to production across fraud, credit underwriting and risk infrastructure. I still own all of them, including on-call.</li>
         </ul>
 
         <div class="subproj">
-          <h4>Approvals &amp; Income Verification</h4>
+          <h4>Lending Growth</h4>
+          <ul>
+            <li>Built the <b>BNPL credit line</b> and credit limit engine from scratch, and used it to take <b>3 lending partners</b> live end to end (SuperMoney, GoKwik and ShopSe), driving <b>30% revenue growth</b> for the lending business.</li>
+            <li>Launched lending to 18 to 21 year olds as a new segment, with exposure capped at <b>5% of the SuperMoney portfolio</b>.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Approvals &amp; KYC</h4>
           <ul>
             <li>Built a bank statement fallback for applicants whose Account Aggregator consent fails, so they get an income check instead of a decline. Rolled it out to 10% of traffic and <b>lifted approvals by 15%+</b>.</li>
-            <li>Replaced a hard rule that auto-declined customers with many active credit lines with a dedicated policy, <b>increasing approvals for this segment by 10%+</b>.</li>
-            <li>Integrated separate ML models for new and repeat customers into live decisioning, replacing one generic model and <b>reducing default rates by 10%+</b>.</li>
-            <li>Built the risk flow for the RuPay TPAP channel, so customers with no Jupiter app history can be assessed for loans.</li>
-          </ul>
-        </div>
-
-        <div class="subproj">
-          <h4>KYC Cost &amp; Drop-off</h4>
-          <ul>
             <li><b>Reduced KYC cost by ~25%</b> by replacing video KYC with a liveness check for loans under ₹60K and then ₹1L, and moving DigiLocker traffic to the cheaper CKYC route. I redefined the high-risk tier first so those users stayed on the stricter checks.</li>
             <li>Added a second DigiLocker vendor to remove a single-vendor dependency and improve KYC uptime.</li>
-            <li>Built a KYC quality score. Users with strong KYC get better loan terms, and users with unusual KYC data get extra fraud checks.</li>
           </ul>
         </div>
 
         <div class="subproj">
-          <h4>Partner Growth</h4>
+          <h4>Compliance &amp; Platform</h4>
           <ul>
-            <li>Turned the first partner integration into a reusable template, <b>cutting partner go-live time from 8+ weeks to about 2</b>.</li>
-            <li>Launched lending to 18 to 21 year olds, with exposure capped at <b>5% of the SuperMoney portfolio</b>.</li>
-            <li>Took <b>KSF co-lending</b> live on the risk stack, including tenure, FOIR and income reconciliation changes. It now disburses <b>₹35 Cr a month</b>.</li>
-          </ul>
-        </div>
-
-        <div class="subproj">
-          <h4>Risk Controls &amp; Compliance</h4>
-          <ul>
-            <li>Moved co-lending hard pulls from Equifax to Experian in stages (2%, 10%, then 100%) with <b>no impact on live loans</b>. Added a check that reuses recent bureau reports, which cut repeat pulls and bureau cost.</li>
-            <li>Added device and identity fraud signals to onboarding and loan application checks, with safe defaults if the vendor API goes down.</li>
-            <li>Moved the government blacklist sync (FRI and MNRL, <b>10M+ records</b>) <b>from daily to hourly</b>, using resumable chunked loads that stay within API rate limits.</li>
-            <li>Designed the exposure circuit breaker to fail open, so an error in the check never blocks a valid loan.</li>
-          </ul>
-        </div>
-
-        <div class="subproj">
-          <h4>Reliability &amp; Platform</h4>
-          <ul>
-            <li>Fixed a <b>500GB+ Elasticsearch index</b> for real-time fraud decisions that had stopped indexing new data, and added shard management and data expiry so it doesn't happen again. I didn't build this system, but I took ownership of the fix.</li>
+            <li>Built a pipeline for government blacklist datasets (FRI and MNRL, <b>10M+ records</b>), closing a compliance gap, and moved its sync <b>from daily to hourly</b> with resumable chunked loads. Every onboarding and loan application is checked against it.</li>
             <li>Moved <b>7 services</b> to a shared dependency setup, so a version upgrade is one change instead of seven.</li>
-            <li>Found and fixed <b>3 unhandled production exceptions</b> and a bug that silently corrupted income data by reviewing production logs.</li>
             <li>Wrote the plan to retire the legacy risk stack, mapping every dependency to its source tables.</li>
           </ul>
         </div>
@@ -448,32 +427,30 @@
       <div class="role-content">
         <h3>Software Development Engineer I</h3>
         <div class="company">Jupiter Money · Risk Tech</div>
-        <ul>
-          <li>Owned <b>12+ production services</b> processing <b>1M events a day</b> across fraud detection, credit underwriting and BNPL lending (consumer and co-lending), at <b>99.9% uptime</b>.</li>
-        </ul>
 
         <div class="subproj">
-          <h4>Fraud Detection &amp; Compliance</h4>
+          <h4>Credit Underwriting</h4>
           <ul>
-            <li>Integrated <b>6+ third-party fraud and risk signals</b> (device and identity SDKs, telecom checks, credit bureau data and government datasets) into onboarding and pre-disbursal checks. They <b>block 30% of fraudulent users</b> at onboarding.</li>
-            <li>Built a pipeline for government blacklist datasets, closing a compliance gap. Every onboarding and loan application is now checked against it.</li>
-          </ul>
-        </div>
-
-        <div class="subproj">
-          <h4>Partner Lending &amp; BNPL Growth</h4>
-          <ul>
-            <li>Took <b>4 lending partners</b> live end to end (SuperMoney, GoKwik, ShopSe and KSF), with <b>₹35 Cr+ in combined monthly disbursals</b>. Each one needed the full underwriting and fraud check flow, not just a config change.</li>
-            <li>Built the SuperMoney BNPL credit line and credit limit engine from scratch, which drove <b>30% revenue growth</b> for the lending business.</li>
             <li>Shipped <b>~40 credit policy changes</b> and moved fully to new ML underwriting models, <b>cutting false positives by 20%</b> and improving true negatives by 10%.</li>
+            <li>Integrated separate ML models for new and repeat customers into live decisioning, replacing one generic model and <b>reducing default rates by 10%+</b>.</li>
+            <li>Moved co-lending hard pulls from Equifax to Experian in stages (2%, 10%, then 100%) with <b>no impact on live loans</b>.</li>
+            <li>Built the risk flow for the RuPay TPAP channel, so customers with no Jupiter app history can be assessed for loans.</li>
           </ul>
         </div>
 
         <div class="subproj">
-          <h4>Risk Platform &amp; Observability</h4>
+          <h4>Fraud Detection</h4>
           <ul>
-            <li>Built an automated circuit breaker in the credit decision path that caps lending exposure for each customer segment. It was the team's first automated guardrail and has <b>triggered 20+ times</b> in production.</li>
+            <li>Integrated <b>6+ third-party fraud and risk signals</b> (device, identity, telecom, credit bureau and government data) into onboarding and pre-disbursal checks, with safe defaults if a vendor goes down. They <b>block 30% of fraudulent users</b> at onboarding.</li>
+          </ul>
+        </div>
+
+        <div class="subproj">
+          <h4>Risk Platform &amp; Reliability</h4>
+          <ul>
+            <li>Built the team's first automated <b>exposure circuit breaker</b> in the credit decision path, capping lending for each customer segment. It has <b>triggered 20+ times</b> in production.</li>
             <li>Built the team's A/B testing framework for credit policies (<b>10+ experiments</b> so far) and live health dashboards for <b>10+ risk and fraud models</b> that previously had no monitoring.</li>
+            <li>Fixed a <b>500GB+ Elasticsearch index</b> for real-time fraud decisions that had stopped indexing new data, and added shard management and data expiry so it doesn't happen again.</li>
             <li>Moved Airflow DAGs from Athena to Databricks and caching from Elasticsearch to Redis Cloud, and upgraded Java 17 to 21. Together these <b>cut infrastructure cost by 30%</b>.</li>
           </ul>
         </div>
